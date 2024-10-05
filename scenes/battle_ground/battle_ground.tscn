@@ -1,28 +1,56 @@
-[gd_scene load_steps=4 format=3 uid="uid://bgf0k2pjcfeua"]
+[gd_scene load_steps=7 format=3 uid="uid://bgf0k2pjcfeua"]
 
 [ext_resource type="Script" path="res://scenes/battle_ground/battle_ground.gd" id="1_totfw"]
-[ext_resource type="PackedScene" uid="uid://dgq8ynyvfh4y2" path="res://scenes/character/character.tscn" id="2_a3lrx"]
+[ext_resource type="PackedScene" uid="uid://gog7cyujijfw" path="res://scenes/terrian/terrian.tscn" id="2_8y45k"]
 [ext_resource type="PackedScene" uid="uid://bnwp6ma4mcr2k" path="res://scenes/inventory/inventory.tscn" id="3_77omx"]
+[ext_resource type="PackedScene" uid="uid://cu4p5v7dn5qax" path="res://scenes/turn_handler/turn_handler.tscn" id="4_lynks"]
+[ext_resource type="PackedScene" uid="uid://cdljbccjtfmgk" path="res://scenes/game_summary/game_summary.tscn" id="4_yv4dk"]
+[ext_resource type="PackedScene" uid="uid://cf305x3eifves" path="res://scenes/controls/controls.tscn" id="6_kuldb"]
 
-[node name="BattleGround" type="Node2D" node_paths=PackedStringArray("active_character")]
+[node name="BattleGround" type="Node2D"]
 script = ExtResource("1_totfw")
-active_character = NodePath("Character")
 
-[node name="Terrian" type="Node2D" parent="."]
+[node name="Terrian" parent="." instance=ExtResource("2_8y45k")]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Terrian"]
-collision_layer = 3
-collision_mask = 3
+[node name="SpawnPoints" type="Node2D" parent="."]
 
-[node name="Polygon2D2" type="CollisionPolygon2D" parent="Terrian/StaticBody2D"]
-polygon = PackedVector2Array(132, 654, 162, 560, 242, 560, 250, 448, 321, 448, 385, 295, 475, 301, 530, 347, 542, 436, 502, 488, 541, 527, 644, 523, 750, 490, 687, 411, 795, 350, 786, 234, 819, 198, 871, 165, 959, 179, 989, 210, 1029, 371, 926, 522, 1047, 528, 1111, 595, 1107, 663)
+[node name="Spawn1" type="Node2D" parent="SpawnPoints"]
+position = Vector2(289, 427)
 
-[node name="Polygon2D" type="Polygon2D" parent="Terrian"]
-color = Color(0.342008, 0.204449, 0.0826466, 1)
-polygon = PackedVector2Array(132, 654, 162, 560, 242, 560, 250, 448, 321, 448, 385, 295, 475, 301, 530, 347, 542, 436, 502, 488, 541, 527, 644, 523, 750, 490, 687, 411, 795, 350, 786, 234, 819, 198, 871, 165, 959, 179, 989, 210, 1029, 371, 926, 522, 1047, 528, 1111, 595, 1107, 663)
+[node name="Spawn2" type="Node2D" parent="SpawnPoints"]
+position = Vector2(201, 541)
 
-[node name="Character" parent="." instance=ExtResource("2_a3lrx")]
-position = Vector2(429, 255)
+[node name="Spawn3" type="Node2D" parent="SpawnPoints"]
+position = Vector2(432, 273)
 
-[node name="Inventory" parent="." instance=ExtResource("3_77omx")]
+[node name="Spawn4" type="Node2D" parent="SpawnPoints"]
+position = Vector2(757, 347)
+
+[node name="Spawn5" type="Node2D" parent="SpawnPoints"]
+position = Vector2(1022, 506)
+
+[node name="Spawn6" type="Node2D" parent="SpawnPoints"]
+position = Vector2(577, 507)
+
+[node name="Spawn7" type="Node2D" parent="SpawnPoints"]
+position = Vector2(899, 153)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(574, 322)
+
+[node name="Inventory" parent="Camera2D" instance=ExtResource("3_77omx")]
 visible = false
+z_index = 1
+position = Vector2(329, -245)
+
+[node name="TurnHandler" parent="Camera2D" instance=ExtResource("4_lynks")]
+z_index = 1
+position = Vector2(-574, -322)
+
+[node name="GameSummary" parent="Camera2D" instance=ExtResource("4_yv4dk")]
+process_mode = 3
+visible = false
+z_index = 1
+
+[node name="Controls" parent="Camera2D" instance=ExtResource("6_kuldb")]
+z_index = 1

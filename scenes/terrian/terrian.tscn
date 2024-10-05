@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://gog7cyujijfw"]
+
+[ext_resource type="Script" path="res://scenes/terrian/terrian.gd" id="1_ret17"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fuk8r"]
+size = Vector2(2868, 112)
+
+[node name="Terrian" type="Node2D"]
+script = ExtResource("1_ret17")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="Polygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(132, 654, 162, 560, 242, 560, 250, 448, 321, 448, 385, 295, 475, 301, 530, 347, 542, 436, 502, 488, 541, 527, 644, 523, 750, 490, 687, 411, 795, 350, 786, 234, 819, 198, 871, 165, 959, 179, 989, 210, 1029, 371, 926, 522, 1047, 528, 1111, 595, 1107, 663)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.342008, 0.204449, 0.0826466, 1)
+polygon = PackedVector2Array(132, 654, 162, 560, 242, 560, 250, 448, 321, 448, 385, 295, 475, 301, 530, 347, 542, 436, 502, 488, 541, 527, 644, 523, 750, 490, 687, 411, 795, 350, 786, 234, 819, 198, 871, 165, 959, 179, 989, 210, 1029, 371, 926, 522, 1047, 528, 1111, 595, 1107, 663)
+
+[node name="Water" type="Area2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Water"]
+offset_left = -974.0
+offset_top = 638.0
+offset_right = 2090.0
+offset_bottom = 1196.0
+color = Color(0.489938, 0.68676, 0.578893, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Water"]
+position = Vector2(641, 693)
+shape = SubResource("RectangleShape2D_fuk8r")
+
+[connection signal="body_entered" from="Water" to="." method="_on_water_body_entered"]

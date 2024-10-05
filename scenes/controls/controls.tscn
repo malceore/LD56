@@ -1,0 +1,67 @@
+[gd_scene load_steps=2 format=3 uid="uid://cf305x3eifves"]
+
+[ext_resource type="Script" path="res://scenes/controls/controls.gd" id="1_lxktw"]
+
+[node name="Controls" type="ColorRect"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -572.0
+offset_top = -320.0
+offset_right = -345.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+color = Color(0.188235, 0.188235, 0.188235, 0.921569)
+script = ExtResource("1_lxktw")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+theme_override_font_sizes/bold_font_size = 22
+bbcode_enabled = true
+text = "[center][u][b] Controls"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel1" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 190)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 14
+text = "A/D - Move Right and Left
+W/Spacebar - Jump
+Right-Click/Q - Open Inventory
+Click to select weapon/tools.
+E - To charge/fire/use your tool.
+Enter - End turn
+Eliminate all over rats to win."
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Close
+"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

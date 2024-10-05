@@ -17,8 +17,8 @@ func _input(event):
 
 
 func _on_button_pressed():
-	get_parent().active_character.change_weapon(grenade.instantiate())
+	get_parent().get_parent().active_character.change_weapon(grenade.instantiate())
 
 func _on_button_4_pressed():
-	get_parent().active_character.change_weapon(bazooka.instantiate())
+	get_parent().get_parent().active_character.change_weapon(bazooka.instantiate())
 

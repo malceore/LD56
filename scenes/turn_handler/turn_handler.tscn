@@ -1,0 +1,80 @@
+[gd_scene load_steps=2 format=3 uid="uid://cu4p5v7dn5qax"]
+
+[ext_resource type="Script" path="res://scenes/turn_handler/turn_handler.gd" id="1_tou8d"]
+
+[node name="TurnHandler" type="Node2D"]
+script = ExtResource("1_tou8d")
+
+[node name="PreviousPlayer" type="ColorRect" parent="."]
+visible = false
+offset_right = 186.0
+offset_bottom = 63.0
+color = Color(0.137255, 0.137255, 0.137255, 0.8)
+
+[node name="MarginContainer" type="MarginContainer" parent="PreviousPlayer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PreviousPlayer/MarginContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Previous Player:"
+scroll_active = false
+
+[node name="CurrentPlayer" type="ColorRect" parent="."]
+offset_left = 483.0
+offset_right = 680.0
+offset_bottom = 71.0
+size_flags_horizontal = 4
+color = Color(0.137255, 0.137255, 0.137255, 0.8)
+
+[node name="MarginContainer" type="MarginContainer" parent="CurrentPlayer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 7
+theme_override_constants/margin_top = 7
+theme_override_constants/margin_right = 7
+theme_override_constants/margin_bottom = 7
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CurrentPlayer/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[center][wave][u]Current Player:"
+scroll_active = false
+
+[node name="NextPlayer" type="ColorRect" parent="."]
+offset_left = 968.0
+offset_right = 1154.0
+offset_bottom = 66.0
+color = Color(0.137255, 0.137255, 0.137255, 0.8)
+
+[node name="MarginContainer" type="MarginContainer" parent="NextPlayer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="NextPlayer/MarginContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Next Player:"
+scroll_active = false
