@@ -11,23 +11,11 @@ size = Vector2(2868, 112)
 script = ExtResource("1_ret17")
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(569, 345.5)
-scale = Vector2(1.60742, 0.90918)
+position = Vector2(638, 305.751)
+scale = Vector2(2.12305, 1.20082)
 texture = ExtResource("3_x8mn1")
 hframes = 2
 vframes = 2
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-collision_layer = 3
-collision_mask = 3
-
-[node name="Polygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(132, 654, 162, 560, 242, 560, 250, 448, 321, 448, 385, 295, 475, 301, 530, 347, 542, 436, 502, 488, 541, 527, 644, 523, 750, 490, 687, 411, 795, 350, 786, 234, 819, 198, 871, 165, 959, 179, 989, 210, 1029, 371, 926, 522, 1047, 528, 1111, 595, 1107, 663)
-
-[node name="Polygon2D" type="Polygon2D" parent="."]
-color = Color(0.342008, 0.204449, 0.0826466, 1)
-texture = ExtResource("2_oyrif")
-polygon = PackedVector2Array(132, 654, 162, 560, 242, 560, 250, 448, 321, 448, 385, 295, 475, 301, 530, 347, 542, 436, 502, 488, 541, 527, 644, 523, 750, 490, 687, 411, 795, 350, 786, 234, 819, 198, 871, 165, 959, 179, 989, 210, 1029, 371, 926, 522, 1047, 528, 1111, 595, 1107, 663)
 
 [node name="Water" type="Area2D" parent="."]
 
@@ -41,5 +29,17 @@ color = Color(0.489938, 0.68676, 0.578893, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Water"]
 position = Vector2(641, 693)
 shape = SubResource("RectangleShape2D_fuk8r")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="Polygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(132, 654, 162, 560, 206, 558, 298, 533, 250, 448, 302, 447, 318, 217, 372, 217, 384, 270, 432, 275, 436, 328, 502, 332, 534, 416, 483, 457, 471, 539, 642, 540, 750, 490, 747, 426, 797, 410, 791.194, 317.099, 847, 309, 798, 168, 854, 166, 863, 99, 922, 98, 995, 203, 1091, 212, 1089, 340, 924, 419, 926, 522, 1047, 528, 1111, 595, 1107, 663)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.342008, 0.204449, 0.0826466, 1)
+texture = ExtResource("2_oyrif")
+polygon = PackedVector2Array(132, 654, 162, 560, 206, 558, 298, 533, 250, 448, 302, 447, 318, 217, 372, 217, 384, 270, 432, 275, 436, 328, 502, 332, 534, 416, 483, 457, 471, 539, 642, 540, 750, 490, 747, 426, 797, 410, 791.194, 317.099, 847, 309, 798, 168, 854, 166, 863, 99, 922, 98, 995, 203, 1091, 212, 1089, 340, 924, 419, 926, 522, 1047, 528, 1111, 595, 1107, 663)
 
 [connection signal="body_entered" from="Water" to="." method="_on_water_body_entered"]

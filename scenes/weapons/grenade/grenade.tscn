@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cmk837rp0fruq"]
+[gd_scene load_steps=5 format=3 uid="uid://cmk837rp0fruq"]
 
 [ext_resource type="Script" path="res://scenes/weapons/grenade/grenade.gd" id="1_rq3rb"]
+[ext_resource type="Texture2D" uid="uid://bgbtllxkc6bra" path="res://scenes/weapons/weapons.png" id="2_gsbi2"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_a5i2u"]
 rough = true
@@ -9,15 +10,10 @@ bounce = 0.2
 [sub_resource type="CircleShape2D" id="CircleShape2D_2unx6"]
 radius = 12.0
 
-[sub_resource type="Gradient" id="Gradient_bwito"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_3826r"]
-gradient = SubResource("Gradient_bwito")
-
 [node name="Grenade" type="RigidBody2D"]
 collision_layer = 2
 collision_mask = 2
-mass = 0.35
+mass = 0.5
 physics_material_override = SubResource("PhysicsMaterial_a5i2u")
 gravity_scale = 0.5
 script = ExtResource("1_rq3rb")
@@ -30,13 +26,12 @@ polygon = PackedVector2Array(-71, -148, -140, -89, -167, 2, -149, 80, -89, 142, 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_2unx6")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -12.0
-offset_top = -10.0
-offset_right = 11.0
-offset_bottom = 13.0
-texture = SubResource("GradientTexture2D_3826r")
-expand_mode = 1
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(-52, -18)
+scale = Vector2(0.137245, 0.137245)
+texture = ExtResource("2_gsbi2")
+polygon = PackedVector2Array(301.852, 187.901, 312.963, 90.3704, 388.889, 14.4444, 462.346, 72.4691, 462.346, 160.741, 395.679, 223.704, 343.827, 235.432)
+uv = PackedVector2Array(301.852, 187.901, 312.963, 90.3704, 388.889, 14.4444, 462.346, 72.4691, 462.346, 160.741, 395.679, 223.704, 343.827, 235.432)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0

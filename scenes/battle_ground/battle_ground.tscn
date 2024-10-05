@@ -15,25 +15,25 @@ script = ExtResource("1_totfw")
 [node name="SpawnPoints" type="Node2D" parent="."]
 
 [node name="Spawn1" type="Node2D" parent="SpawnPoints"]
-position = Vector2(289, 427)
+position = Vector2(279, 426)
 
 [node name="Spawn2" type="Node2D" parent="SpawnPoints"]
 position = Vector2(201, 541)
 
 [node name="Spawn3" type="Node2D" parent="SpawnPoints"]
-position = Vector2(432, 273)
+position = Vector2(403, 250)
 
 [node name="Spawn4" type="Node2D" parent="SpawnPoints"]
-position = Vector2(757, 347)
+position = Vector2(772, 392)
 
 [node name="Spawn5" type="Node2D" parent="SpawnPoints"]
-position = Vector2(1022, 506)
+position = Vector2(998, 510)
 
 [node name="Spawn6" type="Node2D" parent="SpawnPoints"]
-position = Vector2(577, 507)
+position = Vector2(535, 518)
 
 [node name="Spawn7" type="Node2D" parent="SpawnPoints"]
-position = Vector2(899, 153)
+position = Vector2(890, 72)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(574, 322)

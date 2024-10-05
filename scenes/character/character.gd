@@ -8,7 +8,7 @@ extends CharacterBody2D
 @onready var sprite_body = $Sprite.get_node("Body")
 
 const SPEED = 150.0
-const JUMP_VELOCITY = -200.0
+const JUMP_VELOCITY = -400.0
 const labelBoilerplate = "[center]"
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var active_weapon = null

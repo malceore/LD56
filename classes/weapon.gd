@@ -1,7 +1,8 @@
 class_name Weapon extends RigidBody2D
 
-const speed_ramp = 250
-const max_ammo = 10
+var speed_ramp = 250
+var max_ammo = 10
+var debug = true
 var speed = 10000
 var damage = 10
 var weapon_name = "Weapon"

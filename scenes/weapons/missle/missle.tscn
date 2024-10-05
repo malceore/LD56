@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4pbdlghy5533"]
+
+[ext_resource type="Script" path="res://scenes/weapons/missle/missle.gd" id="1_2e318"]
+[ext_resource type="Texture2D" uid="uid://bgbtllxkc6bra" path="res://scenes/weapons/weapons.png" id="1_3p2n5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_48r2m"]
+radius = 3.99999
+height = 33.9999
+
+[node name="Missle" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 2
+mass = 0.5
+gravity_scale = 0.5
+max_contacts_reported = 1
+contact_monitor = true
+script = ExtResource("1_2e318")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5, 0)
+rotation = 1.57272
+shape = SubResource("CapsuleShape2D_48r2m")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(-66, -21)
+scale = Vector2(0.077542, 0.0549516)
+texture = ExtResource("1_3p2n5")
+polygon = PackedVector2Array(565.217, 322.319, 700, 360, 847.826, 293.333, 1018.84, 384.638, 863.768, 462.899, 698.551, 417.971, 556.522, 442.609)
+uv = PackedVector2Array(565.217, 322.319, 700, 360, 847.826, 293.333, 1018.84, 384.638, 863.768, 462.899, 698.551, 417.971, 556.522, 442.609)
+
+[node name="BlastRadius" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BlastRadius"]
+position = Vector2(-0.356342, 1.19422)
+scale = Vector2(0.712687, 0.694237)
+polygon = PackedVector2Array(-71, -148, -140, -89, -167, 2, -149, 80, -89, 142, 2, 166, 90, 139, 143, 85, 168, -1, 142, -87, 93, -139, 2, -168)
+
+[node name="EOLTimer" type="Timer" parent="."]
+wait_time = 30.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="EOLTimer" to="." method="_on_eol_timer_timeout"]

@@ -1,6 +1,9 @@
 extends Weapon
 
 
+var projectile = preload("res://scenes/weapons/grenade/grenade.tscn")
+
+
 func _ready():
 	damage = 35
 	weapon_name = "Grenade"
@@ -26,11 +29,21 @@ func _on_timer_timeout():
 	queue_free()
 
 
+func die():
+	queue_free()
+	
+
 func fire():
 	fired = true
 	current_ammo -= 1
-	apply_central_force(speed * (get_global_mouse_position() - global_position).normalized())
-	$Timer.start()
+	var projectile_instance = projectile.instantiate()
+	projectile_instance.global_position = global_position
+	projectile_instance.rotation = (get_global_mouse_position() - global_position).normalized().angle()
+	get_tree().get_root().add_child(projectile_instance)
+	projectile_instance.apply_central_force(speed * (get_global_mouse_position() - global_position).normalized())
+	projectile_instance.get_node("Timer").start()
+	queue_free()
+
 
 
 

@@ -7,9 +7,12 @@
 height = 42.0
 
 [node name="Character" type="CharacterBody2D"]
+floor_max_angle = 1.32994
+floor_snap_length = 6.0
 script = ExtResource("1_cqf68")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Shadow" type="ColorRect" parent="."]
+visible = false
 offset_left = -7.0
 offset_top = 19.0
 offset_right = 8.0
