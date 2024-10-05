@@ -4,6 +4,8 @@ extends CharacterBody2D
 @export var custom_name = "Moxy"
 @onready var name_label = $NameLabel
 @onready var health_label = $HealthLabel
+@onready var sprite_ap = $Sprite.get_node("AnimationPlayer")
+@onready var sprite_body = $Sprite.get_node("Body")
 
 const SPEED = 150.0
 const JUMP_VELOCITY = -200.0
@@ -65,5 +67,15 @@ func _physics_process(delta):
 			velocity.x = direction * SPEED
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
+
+		# Handle Animation 
+		if velocity.x != 0:
+			sprite_ap.play("scurry")
+			if velocity.x < 0:
+				sprite_body.scale.x = -1
+			else:
+				sprite_body.scale.x = 1
+		else:
+			sprite_ap.play("idle")
 
 		move_and_slide()

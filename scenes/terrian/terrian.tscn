@@ -1,12 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://gog7cyujijfw"]
+[gd_scene load_steps=5 format=3 uid="uid://gog7cyujijfw"]
 
 [ext_resource type="Script" path="res://scenes/terrian/terrian.gd" id="1_ret17"]
+[ext_resource type="Texture2D" uid="uid://cq8gkhqffhwpd" path="res://scenes/terrian/terrian_texture_1.png" id="2_oyrif"]
+[ext_resource type="Texture2D" uid="uid://xyagqkbhe8pu" path="res://scenes/terrian/backgrounds.png" id="3_x8mn1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fuk8r"]
 size = Vector2(2868, 112)
 
 [node name="Terrian" type="Node2D"]
 script = ExtResource("1_ret17")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(569, 345.5)
+scale = Vector2(1.60742, 0.90918)
+texture = ExtResource("3_x8mn1")
+hframes = 2
+vframes = 2
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 3
@@ -17,6 +26,7 @@ polygon = PackedVector2Array(132, 654, 162, 560, 242, 560, 250, 448, 321, 448, 3
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 color = Color(0.342008, 0.204449, 0.0826466, 1)
+texture = ExtResource("2_oyrif")
 polygon = PackedVector2Array(132, 654, 162, 560, 242, 560, 250, 448, 321, 448, 385, 295, 475, 301, 530, 347, 542, 436, 502, 488, 541, 527, 644, 523, 750, 490, 687, 411, 795, 350, 786, 234, 819, 198, 871, 165, 959, 179, 989, 210, 1029, 371, 926, 522, 1047, 528, 1111, 595, 1107, 663)
 
 [node name="Water" type="Area2D" parent="."]
