@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdrg51rept07c"]
+
+[ext_resource type="Script" path="res://scenes/weapons/bazooka/bazooka.gd" id="1_g8ol2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pllf0"]
+height = 42.0
+
+[sub_resource type="Gradient" id="Gradient_k4kb7"]
+colors = PackedColorArray(0.00677214, 0.252135, 0.399814, 1, 1, 0.333333, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_duowp"]
+gradient = SubResource("Gradient_k4kb7")
+
+[node name="Bazooka" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 2
+mass = 0.5
+gravity_scale = 0.5
+center_of_mass_mode = 1
+center_of_mass = Vector2(1.01, 0)
+max_contacts_reported = 1
+contact_monitor = true
+angular_damp = 1.0
+script = ExtResource("1_g8ol2")
+
+[node name="BlastRadius" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BlastRadius"]
+position = Vector2(-0.356342, 1.19422)
+scale = Vector2(0.712687, 0.694237)
+polygon = PackedVector2Array(-71, -148, -140, -89, -167, 2, -149, 80, -89, 142, 2, 166, 90, 139, 143, 85, 168, -1, 142, -87, 93, -139, 2, -168)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.57272
+shape = SubResource("CapsuleShape2D_pllf0")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = -11.5
+offset_right = 21.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.00287271
+size_flags_horizontal = 4
+texture = SubResource("GradientTexture2D_duowp")
+expand_mode = 1
+
+[node name="EOLTimer" type="Timer" parent="."]
+wait_time = 30.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="EOLTimer" to="." method="_on_eol_timer_timeout"]
