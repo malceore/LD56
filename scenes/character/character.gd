@@ -14,7 +14,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var active_weapon = null
 var active = false
 var dead = false
-
+var event_bus
 
 func _ready():
 	health_label.text = labelBoilerplate + str(health)
@@ -34,15 +34,20 @@ func die():
 	dead = true
 	health = 0
 	health_label.text = labelBoilerplate + "Dead"
+	event_bus.emit(self, "dead")
 
 
 func change_weapon(weapon):
-	if active_weapon != null:
-		remove_child(active_weapon)
-		active_weapon.queue_free()
+	deactivate_weapon_if_active()
 	active_weapon = weapon
 	active_weapon.ready()
 	add_child(active_weapon)
+
+
+func deactivate_weapon_if_active():
+	if active_weapon != null:	
+		remove_child(active_weapon)
+		active_weapon.queue_free()
 
 
 func _process(delta):
@@ -56,10 +61,10 @@ func _input(event):
 
 
 func _physics_process(delta):
-	if active:
-		if not is_on_floor():
-			velocity.y += gravity * delta
+	if not is_on_floor():
+		velocity.y += gravity * delta
 
+	if active and !dead:
 		if Input.is_action_just_pressed("Jump") and is_on_floor():
 			velocity.y = JUMP_VELOCITY
 		var direction = Input.get_axis("Move_Left", "Move_Right")
@@ -68,14 +73,14 @@ func _physics_process(delta):
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 
-		# Handle Animation 
-		if velocity.x != 0:
-			sprite_ap.play("scurry")
-			if velocity.x < 0:
-				sprite_body.scale.x = -1
-			else:
-				sprite_body.scale.x = 1
+	# Handle Animation 
+	if velocity.x != 0:
+		sprite_ap.play("scurry")
+		if velocity.x < 0:
+			sprite_body.scale.x = -1
 		else:
-			sprite_ap.play("idle")
+			sprite_body.scale.x = 1
+	else:
+		sprite_ap.play("idle")
 
-		move_and_slide()
+	move_and_slide()

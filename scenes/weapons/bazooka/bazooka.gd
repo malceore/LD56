@@ -20,6 +20,7 @@ func process(delta):
 
 
 func fire():
+	get_parent().event_bus.emit(get_parent(), "weapon_fired")
 	if debug:
 		print_debug("firing " + str(speed) + "  Rotation:" + str((get_global_mouse_position() - global_position).normalized())) 
 	fired = true
@@ -29,4 +30,4 @@ func fire():
 	projectile_instance.rotation = (get_global_mouse_position() - global_position).normalized().angle()
 	get_tree().get_root().add_child(projectile_instance)
 	projectile_instance.apply_central_force(speed * (get_global_mouse_position() - global_position).normalized())
-
+	get_parent().deactivate_weapon_if_active()

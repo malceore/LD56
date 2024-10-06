@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://46odjt2ofdhg"]
+
+[ext_resource type="Texture2D" uid="uid://him5k0f5v6w5" path="res://scenes/weapons/cloud_orb.png" id="1_lmjus"]
+
+[node name="Explosion" type="CPUParticles2D"]
+emitting = false
+amount = 24
+lifetime = 0.2
+one_shot = true
+explosiveness = 0.88
+randomness = 0.37
+texture = ExtResource("1_lmjus")
+spread = 180.0
+gravity = Vector2(0, 400)
+initial_velocity_min = 402.78
+initial_velocity_max = 694.11
+angular_velocity_min = -238.11
+angular_velocity_max = 294.81
+linear_accel_min = 44.09
+linear_accel_max = 83.46
+radial_accel_min = 17.33
+radial_accel_max = 63.0
+scale_amount_min = 0.1
+scale_amount_max = 0.4
+hue_variation_max = 0.3

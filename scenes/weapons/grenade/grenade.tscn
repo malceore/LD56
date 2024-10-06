@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmk837rp0fruq"]
+[gd_scene load_steps=6 format=3 uid="uid://cmk837rp0fruq"]
 
 [ext_resource type="Script" path="res://scenes/weapons/grenade/grenade.gd" id="1_rq3rb"]
 [ext_resource type="Texture2D" uid="uid://bgbtllxkc6bra" path="res://scenes/weapons/weapons.png" id="2_gsbi2"]
+[ext_resource type="PackedScene" uid="uid://46odjt2ofdhg" path="res://scenes/weapons/explosion_particle/explosion.tscn" id="3_lf82g"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_a5i2u"]
 rough = true
@@ -35,5 +36,7 @@ uv = PackedVector2Array(301.852, 187.901, 312.963, 90.3704, 388.889, 14.4444, 46
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
+
+[node name="Explosion" parent="." instance=ExtResource("3_lf82g")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -21,12 +21,16 @@ func process(delta):
 
 
 func _on_timer_timeout():
+	$Explosion.emitting = true
+	await $Explosion.finished
+	#$Explosion.reparent(get_tree().get_root())
+
 	print_debug("explosion!!!")
 	var bodies_in_blast_radius = $BlastRadius.get_overlapping_bodies()
 	for affected_body in bodies_in_blast_radius:
 		if affected_body.has_method("take_damage"):
 			affected_body.take_damage(damage)
-	queue_free()
+	die()
 
 
 func die():
@@ -34,6 +38,7 @@ func die():
 	
 
 func fire():
+	get_parent().event_bus.emit(get_parent(), "weapon_fired")
 	fired = true
 	current_ammo -= 1
 	var projectile_instance = projectile.instantiate()

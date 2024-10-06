@@ -56,6 +56,7 @@ func change_turn():
 
 func set_active_mouse():
 	if parent.active_character != null:
+		parent.active_character.deactivate_weapon_if_active()
 		parent.active_character.active = false
 	var mouse = players[current_player].get_next_mouse()
 	if mouse == null:
