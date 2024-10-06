@@ -1,0 +1,366 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdit2upxkfhmj"]
+
+[ext_resource type="Script" path="res://scenes/match_select_menu/match_select_menu.gd" id="1_ox0rl"]
+[ext_resource type="Texture2D" uid="uid://cqf4fpnn0re5v" path="res://scenes/match_select_menu/place_holder_map_image.PNG" id="1_yrgi7"]
+
+[node name="MatchSelectMenu" type="Node2D"]
+script = ExtResource("1_ox0rl")
+
+[node name="Menu" type="ColorRect" parent="."]
+offset_right = 1150.0
+offset_bottom = 651.0
+color = Color(0.20871, 0.20871, 0.20871, 1)
+
+[node name="PlayButton" type="Button" parent="Menu"]
+layout_mode = 2
+offset_left = 577.0
+offset_top = 571.0
+offset_right = 1138.0
+offset_bottom = 639.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Menu/PlayButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+bbcode_enabled = true
+text = "[center][wave][b]Play Match"
+
+[node name="MapSelect" type="ColorRect" parent="Menu"]
+layout_mode = 2
+offset_left = 32.0
+offset_top = 315.0
+offset_right = 547.0
+offset_bottom = 621.0
+color = Color(0.147672, 0.147672, 0.147672, 1)
+
+[node name="MapSelect" type="Label" parent="Menu/MapSelect"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 17.0
+offset_right = 243.0
+offset_bottom = 56.0
+text = "Map Select"
+
+[node name="MapOptionButton" type="OptionButton" parent="Menu/MapSelect"]
+layout_mode = 0
+offset_left = 235.0
+offset_top = 24.0
+offset_right = 470.0
+offset_bottom = 54.0
+item_count = 3
+selected = 0
+popup/item_0/text = "Desolate Dunes"
+popup/item_0/id = 0
+popup/item_1/text = "Erdtree"
+popup/item_1/id = 1
+popup/item_2/text = "Peepo Land"
+popup/item_2/id = 2
+
+[node name="MapSprite" type="Sprite2D" parent="Menu/MapSelect"]
+position = Vector2(247, 170)
+scale = Vector2(0.476852, 0.476852)
+texture = ExtResource("1_yrgi7")
+hframes = 3
+
+[node name="MatchSettings" type="ColorRect" parent="Menu"]
+layout_mode = 2
+offset_left = 624.0
+offset_top = 334.0
+offset_right = 1049.0
+offset_bottom = 539.0
+color = Color(0.147672, 0.147672, 0.147672, 1)
+
+[node name="PlayerCountSelect" type="Label" parent="Menu/MatchSettings"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 26.0
+offset_right = 228.0
+offset_bottom = 65.0
+text = "Player Count"
+
+[node name="OptionButton" type="OptionButton" parent="Menu/MatchSettings"]
+layout_mode = 0
+offset_left = 209.0
+offset_top = 25.0
+offset_right = 387.0
+offset_bottom = 56.0
+item_count = 3
+selected = 2
+popup/item_0/text = "2"
+popup/item_0/id = 0
+popup/item_1/text = "3"
+popup/item_1/id = 1
+popup/item_2/text = "4"
+popup/item_2/id = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 300.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Menu/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 35
+
+[node name="PlayerSetup1" type="ColorRect" parent="Menu/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 2
+color = Color(0.20871, 0.20871, 0.20871, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/MarginContainer/HBoxContainer/PlayerSetup1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Menu/MarginContainer/HBoxContainer/PlayerSetup1/VBoxContainer"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]Player Setup"
+
+[node name="HSeparator" type="HSeparator" parent="Menu/MarginContainer/HBoxContainer/PlayerSetup1/VBoxContainer"]
+layout_mode = 2
+
+[node name="TeamNameLabel" type="Label" parent="Menu/MarginContainer/HBoxContainer/PlayerSetup1/VBoxContainer"]
+layout_mode = 2
+text = "Team Name"
+
+[node name="TextEdit" type="TextEdit" parent="Menu/MarginContainer/HBoxContainer/PlayerSetup1/VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="HSeparator3" type="HSeparator" parent="Menu/MarginContainer/HBoxContainer/PlayerSetup1/VBoxContainer"]
+layout_mode = 2
+
+[node name="TeamColorLabel" type="Label" parent="Menu/MarginContainer/HBoxContainer/PlayerSetup1/VBoxContainer"]
+layout_mode = 2
+text = "Team Color"
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="Menu/MarginContainer/HBoxContainer/PlayerSetup1/VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+color = Color(0.619539, 0.294739, 0.622314, 1)
+
+[node name="HSeparator2" type="HSeparator" parent="Menu/MarginContainer/HBoxContainer/PlayerSetup1/VBoxContainer"]
+layout_mode = 2
+
+[node name="MouseCountLabel" type="Label" parent="Menu/MarginContainer/HBoxContainer/PlayerSetup1/VBoxContainer"]
+layout_mode = 2
+text = "Mouse Count"
+
+[node name="MouseCountOption" type="OptionButton" parent="Menu/MarginContainer/HBoxContainer/PlayerSetup1/VBoxContainer"]
+layout_mode = 2
+item_count = 4
+selected = 0
+popup/item_0/text = "1"
+popup/item_0/id = 0
+popup/item_1/text = "2"
+popup/item_1/id = 1
+popup/item_2/text = "3"
+popup/item_2/id = 2
+popup/item_3/text = "4"
+popup/item_3/id = 3
+
+[node name="PlayerSetup2" type="ColorRect" parent="Menu/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 2
+color = Color(0.20871, 0.20871, 0.20871, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/MarginContainer/HBoxContainer/PlayerSetup2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Menu/MarginContainer/HBoxContainer/PlayerSetup2/VBoxContainer"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]Player Setup"
+
+[node name="HSeparator" type="HSeparator" parent="Menu/MarginContainer/HBoxContainer/PlayerSetup2/VBoxContainer"]
+layout_mode = 2
+
+[node name="TeamNameLabel" type="Label" parent="Menu/MarginContainer/HBoxContainer/PlayerSetup2/VBoxContainer"]
+layout_mode = 2
+text = "Team Name"
+
+[node name="TextEdit" type="TextEdit" parent="Menu/MarginContainer/HBoxContainer/PlayerSetup2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="HSeparator3" type="HSeparator" parent="Menu/MarginContainer/HBoxContainer/PlayerSetup2/VBoxContainer"]
+layout_mode = 2
+
+[node name="TeamColorLabel" type="Label" parent="Menu/MarginContainer/HBoxContainer/PlayerSetup2/VBoxContainer"]
+layout_mode = 2
+text = "Team Color"
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="Menu/MarginContainer/HBoxContainer/PlayerSetup2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+color = Color(0.228639, 0.4131, 0.814487, 1)
+
+[node name="HSeparator2" type="HSeparator" parent="Menu/MarginContainer/HBoxContainer/PlayerSetup2/VBoxContainer"]
+layout_mode = 2
+
+[node name="MouseCountLabel" type="Label" parent="Menu/MarginContainer/HBoxContainer/PlayerSetup2/VBoxContainer"]
+layout_mode = 2
+text = "Mouse Count"
+
+[node name="MouseCountOption" type="OptionButton" parent="Menu/MarginContainer/HBoxContainer/PlayerSetup2/VBoxContainer"]
+layout_mode = 2
+item_count = 4
+selected = 0
+popup/item_0/text = "1"
+popup/item_0/id = 0
+popup/item_1/text = "2"
+popup/item_1/id = 1
+popup/item_2/text = "3"
+popup/item_2/id = 2
+popup/item_3/text = "4"
+popup/item_3/id = 3
+
+[node name="PlayerSetup3" type="ColorRect" parent="Menu/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 2
+color = Color(0.20871, 0.20871, 0.20871, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/MarginContainer/HBoxContainer/PlayerSetup3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Menu/MarginContainer/HBoxContainer/PlayerSetup3/VBoxContainer"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]Player Setup"
+
+[node name="HSeparator" type="HSeparator" parent="Menu/MarginContainer/HBoxContainer/PlayerSetup3/VBoxContainer"]
+layout_mode = 2
+
+[node name="TeamNameLabel" type="Label" parent="Menu/MarginContainer/HBoxContainer/PlayerSetup3/VBoxContainer"]
+layout_mode = 2
+text = "Team Name"
+
+[node name="TextEdit" type="TextEdit" parent="Menu/MarginContainer/HBoxContainer/PlayerSetup3/VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="HSeparator3" type="HSeparator" parent="Menu/MarginContainer/HBoxContainer/PlayerSetup3/VBoxContainer"]
+layout_mode = 2
+
+[node name="TeamColorLabel" type="Label" parent="Menu/MarginContainer/HBoxContainer/PlayerSetup3/VBoxContainer"]
+layout_mode = 2
+text = "Team Color"
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="Menu/MarginContainer/HBoxContainer/PlayerSetup3/VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+color = Color(0.754575, 0.537716, 0.222175, 1)
+
+[node name="HSeparator2" type="HSeparator" parent="Menu/MarginContainer/HBoxContainer/PlayerSetup3/VBoxContainer"]
+layout_mode = 2
+
+[node name="MouseCountLabel" type="Label" parent="Menu/MarginContainer/HBoxContainer/PlayerSetup3/VBoxContainer"]
+layout_mode = 2
+text = "Mouse Count"
+
+[node name="MouseCountOption" type="OptionButton" parent="Menu/MarginContainer/HBoxContainer/PlayerSetup3/VBoxContainer"]
+layout_mode = 2
+item_count = 4
+selected = 0
+popup/item_0/text = "1"
+popup/item_0/id = 0
+popup/item_1/text = "2"
+popup/item_1/id = 1
+popup/item_2/text = "3"
+popup/item_2/id = 2
+popup/item_3/text = "4"
+popup/item_3/id = 3
+
+[node name="PlayerSetup4" type="ColorRect" parent="Menu/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 2
+color = Color(0.20871, 0.20871, 0.20871, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/MarginContainer/HBoxContainer/PlayerSetup4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Menu/MarginContainer/HBoxContainer/PlayerSetup4/VBoxContainer"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]Player Setup"
+
+[node name="HSeparator" type="HSeparator" parent="Menu/MarginContainer/HBoxContainer/PlayerSetup4/VBoxContainer"]
+layout_mode = 2
+
+[node name="TeamNameLabel" type="Label" parent="Menu/MarginContainer/HBoxContainer/PlayerSetup4/VBoxContainer"]
+layout_mode = 2
+text = "Team Name"
+
+[node name="TextEdit" type="TextEdit" parent="Menu/MarginContainer/HBoxContainer/PlayerSetup4/VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="HSeparator3" type="HSeparator" parent="Menu/MarginContainer/HBoxContainer/PlayerSetup4/VBoxContainer"]
+layout_mode = 2
+
+[node name="TeamColorLabel" type="Label" parent="Menu/MarginContainer/HBoxContainer/PlayerSetup4/VBoxContainer"]
+layout_mode = 2
+text = "Team Color"
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="Menu/MarginContainer/HBoxContainer/PlayerSetup4/VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+color = Color(0.175991, 0.756299, 0.526041, 1)
+
+[node name="HSeparator2" type="HSeparator" parent="Menu/MarginContainer/HBoxContainer/PlayerSetup4/VBoxContainer"]
+layout_mode = 2
+
+[node name="MouseCountLabel" type="Label" parent="Menu/MarginContainer/HBoxContainer/PlayerSetup4/VBoxContainer"]
+layout_mode = 2
+text = "Mouse Count"
+
+[node name="MouseCountOption" type="OptionButton" parent="Menu/MarginContainer/HBoxContainer/PlayerSetup4/VBoxContainer"]
+layout_mode = 2
+item_count = 4
+selected = 0
+popup/item_0/text = "1"
+popup/item_0/id = 0
+popup/item_1/text = "2"
+popup/item_1/id = 1
+popup/item_2/text = "3"
+popup/item_2/id = 2
+popup/item_3/text = "4"
+popup/item_3/id = 3
+
+[connection signal="pressed" from="Menu/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="item_selected" from="Menu/MapSelect/MapOptionButton" to="." method="_on_map_option_button_item_selected"]
+[connection signal="item_selected" from="Menu/MatchSettings/OptionButton" to="." method="_on_option_button_item_selected"]

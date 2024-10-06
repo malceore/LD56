@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://b7kk6cob3bgpg"]
+
+[ext_resource type="Script" path="res://scenes/battle_ground/battle_ground.gd" id="1_2673n"]
+[ext_resource type="PackedScene" uid="uid://gog7cyujijfw" path="res://scenes/terrian/terrain1.tscn" id="2_x5fnv"]
+[ext_resource type="PackedScene" uid="uid://bnwp6ma4mcr2k" path="res://scenes/inventory/inventory.tscn" id="3_f8jbu"]
+[ext_resource type="PackedScene" uid="uid://cu4p5v7dn5qax" path="res://scenes/turn_handler/turn_handler.tscn" id="4_cu14r"]
+[ext_resource type="PackedScene" uid="uid://cdljbccjtfmgk" path="res://scenes/game_summary/game_summary.tscn" id="5_emtku"]
+[ext_resource type="PackedScene" uid="uid://cf305x3eifves" path="res://scenes/controls/controls.tscn" id="6_d1q63"]
+
+[node name="BattleGround" type="Node2D"]
+script = ExtResource("1_2673n")
+
+[node name="Terrain" parent="." instance=ExtResource("2_x5fnv")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(574, 322)
+
+[node name="Inventory" parent="Camera2D" instance=ExtResource("3_f8jbu")]
+visible = false
+z_index = 1
+position = Vector2(329, -245)
+
+[node name="TurnHandler" parent="Camera2D" instance=ExtResource("4_cu14r")]
+z_index = 1
+position = Vector2(-574, -322)
+
+[node name="GameSummary" parent="Camera2D" instance=ExtResource("5_emtku")]
+process_mode = 3
+visible = false
+z_index = 1
+
+[node name="Controls" parent="Camera2D" instance=ExtResource("6_d1q63")]
+z_index = 1

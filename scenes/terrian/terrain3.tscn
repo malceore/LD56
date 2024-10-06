@@ -1,0 +1,107 @@
+[gd_scene load_steps=5 format=3 uid="uid://ce76p75li314i"]
+
+[ext_resource type="Script" path="res://scenes/terrian/terrian.gd" id="1_385hb"]
+[ext_resource type="Texture2D" uid="uid://xyagqkbhe8pu" path="res://scenes/terrian/backgrounds.png" id="2_mdi70"]
+[ext_resource type="Texture2D" uid="uid://cq3x43rsssu6u" path="res://scenes/terrian/terrian_texture_2.png" id="3_ev8s5"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_baoal"]
+distance = 32.0
+
+[node name="Terrain" type="Node2D"]
+script = ExtResource("1_385hb")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(843, -712.934)
+scale = Vector2(5.20313, 4.69544)
+texture = ExtResource("2_mdi70")
+hframes = 2
+vframes = 2
+frame = 1
+
+[node name="Water" type="Area2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Water"]
+offset_left = -1881.0
+offset_top = 614.0
+offset_right = 3790.0
+offset_bottom = 10166.0
+color = Color(0.243128, 0.245128, 0.150804, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Water"]
+modulate = Color(1, 1, 1, 0.498039)
+z_index = 1
+offset_left = -1841.0
+offset_top = 606.0
+offset_right = 3790.0
+offset_bottom = 10166.0
+color = Color(0.243137, 0.247059, 0.14902, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Water"]
+position = Vector2(641, 693)
+shape = SubResource("WorldBoundaryShape2D_baoal")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="Polygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-437, 662, -339, 113, 105, -90, 359, -217, 550, -757, -485, -928, -523, -1112, 398.356, -1064.41, 378, -1354, -72, -1608, -91, -1741, 455, -1817, 696, -2452, 848, -2465, 1159, -2147, 1286, -2141, 1064, -1582, 1083, -1271, 1788, -1735, 1972, -1709, 1071, -922, 1020, -681, 1420, -731, 1998, -1208, 2112, -1182, 2366, -916, 2594, -833, 2683, -731, 1140, -418, 1121, -293, 817, -166, 1339.67, 190.452, 1579, 75, 1731, 69, 1915, 450, 2264, 634)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+texture = ExtResource("3_ev8s5")
+texture_offset = Vector2(1000, 250)
+texture_scale = Vector2(0.4, 0.4)
+texture_rotation = 1.9792
+polygon = PackedVector2Array(-437, 662, -339, 113, 105, -90, 359, -217, 550, -757, -485, -928, -523, -1112, 398.356, -1064.41, 378, -1354, -72, -1608, -91, -1741, 455, -1817, 696, -2452, 848, -2465, 1159, -2147, 1286, -2141, 1064, -1582, 1083, -1271, 1788, -1735, 1972, -1709, 1071, -922, 1020, -681, 1420, -731, 1998, -1208, 2112, -1182, 2366, -916, 2594, -833, 2683, -731, 1140, -418, 1121, -293, 817, -166, 1339.67, 190.452, 1579, 75, 1731, 69, 1915, 450, 2264, 634)
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="Spawn1" type="Node2D" parent="SpawnPoints"]
+position = Vector2(2481, -954)
+
+[node name="Spawn2" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-230, -51)
+
+[node name="Spawn3" type="Node2D" parent="SpawnPoints"]
+position = Vector2(1639, 10)
+
+[node name="Spawn4" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-403, -1182)
+
+[node name="Spawn5" type="Node2D" parent="SpawnPoints"]
+position = Vector2(144, -220)
+
+[node name="Spawn6" type="Node2D" parent="SpawnPoints"]
+position = Vector2(1857, -1810)
+
+[node name="Spawn7" type="Node2D" parent="SpawnPoints"]
+position = Vector2(53, -1830)
+
+[node name="Spawn8" type="Node2D" parent="SpawnPoints"]
+position = Vector2(762, -2601)
+
+[node name="Spawn9" type="Node2D" parent="SpawnPoints"]
+position = Vector2(1074, -63)
+
+[node name="Spawn10" type="Node2D" parent="SpawnPoints"]
+position = Vector2(1253, -785)
+
+[node name="Spawn11" type="Node2D" parent="SpawnPoints"]
+position = Vector2(106, -1172)
+
+[node name="Spawn12" type="Node2D" parent="SpawnPoints"]
+position = Vector2(1303, -1531)
+
+[node name="Spawn13" type="Node2D" parent="SpawnPoints"]
+position = Vector2(2009, -1307)
+
+[node name="Spawn14" type="Node2D" parent="SpawnPoints"]
+position = Vector2(1205, -2266)
+
+[node name="Spawn15" type="Node2D" parent="SpawnPoints"]
+position = Vector2(2004, 424)
+
+[node name="Spawn16" type="Node2D" parent="SpawnPoints"]
+position = Vector2(362, -1913)
+
+[connection signal="body_entered" from="Water" to="." method="_on_water_body_entered"]

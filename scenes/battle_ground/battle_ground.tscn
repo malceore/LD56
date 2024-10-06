@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bgf0k2pjcfeua"]
 
 [ext_resource type="Script" path="res://scenes/battle_ground/battle_ground.gd" id="1_totfw"]
-[ext_resource type="PackedScene" uid="uid://gog7cyujijfw" path="res://scenes/terrian/terrian.tscn" id="2_8y45k"]
+[ext_resource type="PackedScene" uid="uid://cunjeo1mg05fo" path="res://scenes/terrian/terrain2.tscn" id="2_jtmba"]
 [ext_resource type="PackedScene" uid="uid://bnwp6ma4mcr2k" path="res://scenes/inventory/inventory.tscn" id="3_77omx"]
 [ext_resource type="PackedScene" uid="uid://cu4p5v7dn5qax" path="res://scenes/turn_handler/turn_handler.tscn" id="4_lynks"]
 [ext_resource type="PackedScene" uid="uid://cdljbccjtfmgk" path="res://scenes/game_summary/game_summary.tscn" id="4_yv4dk"]
@@ -10,30 +10,7 @@
 [node name="BattleGround" type="Node2D"]
 script = ExtResource("1_totfw")
 
-[node name="Terrian" parent="." instance=ExtResource("2_8y45k")]
-
-[node name="SpawnPoints" type="Node2D" parent="."]
-
-[node name="Spawn1" type="Node2D" parent="SpawnPoints"]
-position = Vector2(279, 426)
-
-[node name="Spawn2" type="Node2D" parent="SpawnPoints"]
-position = Vector2(201, 541)
-
-[node name="Spawn3" type="Node2D" parent="SpawnPoints"]
-position = Vector2(403, 250)
-
-[node name="Spawn4" type="Node2D" parent="SpawnPoints"]
-position = Vector2(772, 392)
-
-[node name="Spawn5" type="Node2D" parent="SpawnPoints"]
-position = Vector2(998, 510)
-
-[node name="Spawn6" type="Node2D" parent="SpawnPoints"]
-position = Vector2(535, 518)
-
-[node name="Spawn7" type="Node2D" parent="SpawnPoints"]
-position = Vector2(890, 72)
+[node name="Terrain" parent="." instance=ExtResource("2_jtmba")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(574, 322)

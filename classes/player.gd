@@ -3,6 +3,7 @@ class_name player extends Node
 var team_name: String = ""
 var active: bool = false
 var team_color: Color 
+var mouse_count = 0
 var current_mouse = 0
 var mice = []
 

@@ -1,0 +1,105 @@
+[gd_scene load_steps=5 format=3 uid="uid://cunjeo1mg05fo"]
+
+[ext_resource type="Script" path="res://scenes/terrian/terrian.gd" id="1_a8uww"]
+[ext_resource type="Texture2D" uid="uid://xyagqkbhe8pu" path="res://scenes/terrian/backgrounds.png" id="2_rqc6j"]
+[ext_resource type="Texture2D" uid="uid://bcfdng8yv6u8h" path="res://scenes/terrian/terrian_texture_3.png" id="3_qjsrr"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_baoal"]
+distance = 32.0
+
+[node name="Terrain" type="Node2D"]
+script = ExtResource("1_a8uww")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(937.5, -223.586)
+scale = Vector2(4.47559, 2.42659)
+texture = ExtResource("2_rqc6j")
+hframes = 2
+vframes = 2
+frame = 3
+
+[node name="Water" type="Area2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Water"]
+offset_left = -1369.0
+offset_top = 638.0
+offset_right = 2862.0
+offset_bottom = 10166.0
+color = Color(0.674106, 0.593096, 0.77125, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Water"]
+modulate = Color(1, 1, 1, 0.498039)
+z_index = 1
+offset_left = -1369.0
+offset_top = 638.0
+offset_right = 2862.0
+offset_bottom = 10166.0
+color = Color(0.674106, 0.593096, 0.77125, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Water"]
+position = Vector2(641, 693)
+shape = SubResource("WorldBoundaryShape2D_baoal")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="Polygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-437, 662, -344, 180, -246, 188, -215, 357, -22, 192, 118, 188, -157, 561, 89, 544, 296, 536, 432, 379, 365, 97, 454, 90, 538, -549, 784, -592, 877, -439, 1140, -418, 1140, -359, 644, -134, 573, 494, 758, 481, 818, 192, 917.027, 193.104, 991, -24, 1084, -32, 1024, 491, 1256, 503, 1278, 332, 1408, 322, 1462, 132, 1577, 135, 1659, 414, 1834, 421, 1983, 659)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+texture = ExtResource("3_qjsrr")
+texture_scale = Vector2(0.5, 0.5)
+polygon = PackedVector2Array(-437, 662, -344, 180, -246, 188, -215, 357, -22, 192, 118, 188, -157, 561, 89, 544, 296, 536, 432, 379, 365, 97, 454, 90, 538, -549, 784, -592, 877, -439, 1140, -418, 1140, -359, 644, -134, 573, 494, 758, 481, 818, 192, 917.027, 193.104, 991, -24, 1084, -32, 1024, 491, 1256, 503, 1278, 332, 1408, 322, 1462, 132, 1577, 135, 1659, 414, 1834, 421, 1983, 659)
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="Spawn1" type="Node2D" parent="SpawnPoints"]
+position = Vector2(1095, -476)
+
+[node name="Spawn2" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-284, 137)
+
+[node name="Spawn3" type="Node2D" parent="SpawnPoints"]
+position = Vector2(1350, 279)
+
+[node name="Spawn4" type="Node2D" parent="SpawnPoints"]
+position = Vector2(667, 439)
+
+[node name="Spawn5" type="Node2D" parent="SpawnPoints"]
+position = Vector2(43, 150)
+
+[node name="Spawn6" type="Node2D" parent="SpawnPoints"]
+position = Vector2(1130, 457)
+
+[node name="Spawn7" type="Node2D" parent="SpawnPoints"]
+position = Vector2(605, -619)
+
+[node name="Spawn8" type="Node2D" parent="SpawnPoints"]
+position = Vector2(1031, -92)
+
+[node name="Spawn9" type="Node2D" parent="SpawnPoints"]
+position = Vector2(1747, 374)
+
+[node name="Spawn10" type="Node2D" parent="SpawnPoints"]
+position = Vector2(1515, 76)
+
+[node name="Spawn11" type="Node2D" parent="SpawnPoints"]
+position = Vector2(5, 503)
+
+[node name="Spawn12" type="Node2D" parent="SpawnPoints"]
+position = Vector2(402, 30)
+
+[node name="Spawn13" type="Node2D" parent="SpawnPoints"]
+position = Vector2(980, -493)
+
+[node name="Spawn14" type="Node2D" parent="SpawnPoints"]
+position = Vector2(209, 499)
+
+[node name="Spawn15" type="Node2D" parent="SpawnPoints"]
+position = Vector2(867, 148)
+
+[node name="Spawn16" type="Node2D" parent="SpawnPoints"]
+position = Vector2(725, -642)
+
+[connection signal="body_entered" from="Water" to="." method="_on_water_body_entered"]

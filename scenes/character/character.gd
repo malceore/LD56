@@ -32,8 +32,11 @@ func take_damage(damage):
 
 func die():
 	dead = true
+	sprite_ap.play("dying")
+	#await sprite_ap.animation_finished
 	health = 0
 	health_label.text = labelBoilerplate + "Dead"
+	#$CollisionShape2D.disabled = true
 	event_bus.emit(self, "dead")
 
 
@@ -61,10 +64,15 @@ func _input(event):
 
 
 func _physics_process(delta):
-	if not is_on_floor():
-		velocity.y += gravity * delta
 
-	if active and !dead:
+	if active and !dead:	
+		if not is_on_floor():
+			velocity.y += gravity * delta
+			sprite_ap.play("jump")
+		else:
+			sprite_ap.play("idle")
+
+		# Handle Movement Controls
 		if Input.is_action_just_pressed("Jump") and is_on_floor():
 			velocity.y = JUMP_VELOCITY
 		var direction = Input.get_axis("Move_Left", "Move_Right")
@@ -73,14 +81,17 @@ func _physics_process(delta):
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 
-	# Handle Animation 
-	if velocity.x != 0:
-		sprite_ap.play("scurry")
+		# Handle Animation 
+		if velocity.x != 0:
+			sprite_ap.play("scurry")
+
+		if velocity.y != 0:
+			sprite_ap.play("jump")
+
+		# Handle Sprite Direction
 		if velocity.x < 0:
 			sprite_body.scale.x = -1
 		else:
 			sprite_body.scale.x = 1
-	else:
-		sprite_ap.play("idle")
 
 	move_and_slide()
