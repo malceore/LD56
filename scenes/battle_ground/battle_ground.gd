@@ -70,7 +70,6 @@ func spawn_mice():
 	var next_spawn_index = 0
 	for player in turn_handler.players:
 		for mouse in player.mice:
-			print_debug(mouse.name)
 			add_child(mouse)
 			mouse.position = spawn_points[next_spawn_index].position
 			next_spawn_index += 1

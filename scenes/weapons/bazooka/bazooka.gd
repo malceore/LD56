@@ -1,6 +1,9 @@
 extends Weapon
 
+@onready var power_gauge= get_parent().get_node("PowerGauge")
+
 var projectile = preload("res://scenes/weapons/missle/missle.tscn")
+
 
 func _ready():
 	speed_ramp = 250
@@ -15,8 +18,12 @@ func process(delta):
 		if hold_time < 3.0:
 			speed += speed_ramp
 		hold_time += delta
+		power_gauge.value += delta
+		power_gauge.visible = true			
 	elif Input.is_action_just_released("Shoot"):
 		fire()
+		power_gauge.value = 0
+		power_gauge.visible = false				
 
 
 func fire():

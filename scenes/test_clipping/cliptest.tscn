@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://1jtw37ctkdpx"]
+
+[ext_resource type="Texture2D" uid="uid://bcfdng8yv6u8h" path="res://scenes/terrian/terrian_texture_3.png" id="1_bhn1i"]
+[ext_resource type="Script" path="res://scenes/test_clipping/cliptest.gd" id="1_cke0d"]
+
+[node name="Cliptest" type="Node2D"]
+script = ExtResource("1_cke0d")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="Polygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-437, 662, -344, 180, -246, 188, -215, 357, -22, 192, 118, 188, -157, 561, 89, 544, 296, 536, 432, 379, 365, 97, 454, 90, 538, -549, 784, -592, 877, -439, 1140, -418, 1140, -359, 644, -134, 573, 494, 758, 481, 818, 192, 917.027, 193.104, 991, -24, 1084, -32, 1024, 491, 1256, 503, 1278, 332, 1408, 322, 1462, 132, 1577, 135, 1659, 414, 1834, 421, 1983, 659)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+texture = ExtResource("1_bhn1i")
+texture_scale = Vector2(0.5, 0.5)
+polygon = PackedVector2Array(-437, 662, -344, 180, -246, 188, -215, 357, -22, 192, 118, 188, -157, 561, 89, 544, 296, 536, 432, 379, 365, 97, 454, 90, 538, -549, 784, -592, 877, -439, 1140, -418, 1140, -359, 644, -134, 573, 494, 758, 481, 818, 192, 917.027, 193.104, 991, -24, 1084, -32, 1024, 491, 1256, 503, 1278, 332, 1408, 322, 1462, 132, 1577, 135, 1659, 414, 1834, 421, 1983, 659)
+
+[node name="ClippedPolygons" type="Polygon2D" parent="."]
+visible = false
+position = Vector2(-16, 11)
+polygon = PackedVector2Array(545, 267, 656, 196, 707, 325, 538, 378)
+
+[node name="Button" type="Button" parent="."]
+offset_left = 282.0
+offset_top = 539.0
+offset_right = 609.0
+offset_bottom = 596.0
+text = "Clip"
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 656.0
+offset_top = 537.0
+offset_right = 983.0
+offset_bottom = 594.0
+text = "Reset
+"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

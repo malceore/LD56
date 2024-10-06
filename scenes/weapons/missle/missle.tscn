@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://46odjt2ofdhg" path="res://scenes/weapons/explosion_particle/explosion.tscn" id="2_sur2l"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_48r2m"]
-radius = 3.99999
-height = 33.9999
+radius = 2.99999
+height = 26.0038
 
 [node name="Missle" type="RigidBody2D"]
 collision_layer = 2
@@ -37,7 +37,7 @@ uv = PackedVector2Array(565.217, 322.319, 700, 360, 847.826, 293.333, 1018.84, 3
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BlastRadius"]
 position = Vector2(-0.356342, 1.19422)
 scale = Vector2(0.712687, 0.694237)
-polygon = PackedVector2Array(-71, -148, -140, -89, -167, 2, -149, 80, -89, 142, 2, 166, 90, 139, 143, 85, 168, -1, 142, -87, 93, -139, 2, -168)
+polygon = PackedVector2Array(-40.1911, -29.0884, -54.2225, -3.16062, -41.5942, 27.0884, 1.90314, 48.6949, 45.4005, 67.4205, 128.186, -1.72019, 45.4005, -65.0991, 1.90314, -49.2544)
 
 [node name="Explosion" parent="." instance=ExtResource("2_sur2l")]
 

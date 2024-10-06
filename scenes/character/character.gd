@@ -25,7 +25,6 @@ func take_damage(damage):
 	if not dead:
 		health -= damage
 		health_label.text = labelBoilerplate + str(health)
-		print_debug("Ouchie!")
 		if health <= 0:
 			die()
 
@@ -64,29 +63,29 @@ func _input(event):
 
 
 func _physics_process(delta):
-
-	if active and !dead:	
+	if !dead:	
 		if not is_on_floor():
 			velocity.y += gravity * delta
 			sprite_ap.play("jump")
 		else:
 			sprite_ap.play("idle")
 
-		# Handle Movement Controls
-		if Input.is_action_just_pressed("Jump") and is_on_floor():
-			velocity.y = JUMP_VELOCITY
-		var direction = Input.get_axis("Move_Left", "Move_Right")
-		if direction:
-			velocity.x = direction * SPEED
-		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
+		if active:
+			# Handle Movement Controls
+			if Input.is_action_just_pressed("Jump") and is_on_floor():
+				velocity.y = JUMP_VELOCITY
+			var direction = Input.get_axis("Move_Left", "Move_Right")
+			if direction:
+				velocity.x = direction * SPEED
+			else:
+				velocity.x = move_toward(velocity.x, 0, SPEED)
 
-		# Handle Animation 
-		if velocity.x != 0:
-			sprite_ap.play("scurry")
+			# Handle Animation 
+			if velocity.x != 0:
+				sprite_ap.play("scurry")
 
-		if velocity.y != 0:
-			sprite_ap.play("jump")
+			if velocity.y != 0:
+				sprite_ap.play("jump")
 
 		# Handle Sprite Direction
 		if velocity.x < 0:

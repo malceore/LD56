@@ -4,6 +4,7 @@ const grenade = preload("res://scenes/weapons/grenade/grenade.tscn")
 const bazooka = preload("res://scenes/weapons/bazooka/bazooka.tscn")
 const uzi = preload("res://scenes/weapons/grenade/grenade.tscn")
 const lead_pipe = preload("res://scenes/weapons/grenade/grenade.tscn")
+const teleporter = preload("res://scenes/weapons/teleporter/teleporter.tscn")
 
 
 func _input(event):
@@ -22,3 +23,5 @@ func _on_button_pressed():
 func _on_button_4_pressed():
 	get_parent().get_parent().active_character.change_weapon(bazooka.instantiate())
 
+func _on_button_5_pressed():
+	get_parent().get_parent().active_character.change_weapon(teleporter.instantiate())

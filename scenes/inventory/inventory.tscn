@@ -39,6 +39,7 @@ layout_mode = 2
 text = "Grenade"
 
 [node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/GridContainer"]
+visible = false
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 text = "Uzi"
@@ -53,5 +54,12 @@ custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 text = "Bazooka"
 
+[node name="Button5" type="Button" parent="MarginContainer/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "Teleporter"
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/GridContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/GridContainer/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/GridContainer/Button5" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/GridContainer/Button5" to="." method="_on_button_5_pressed"]
