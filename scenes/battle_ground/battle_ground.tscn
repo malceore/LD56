@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://bgf0k2pjcfeua"]
+[gd_scene load_steps=8 format=3 uid="uid://bgf0k2pjcfeua"]
 
 [ext_resource type="Script" path="res://scenes/battle_ground/battle_ground.gd" id="1_totfw"]
-[ext_resource type="PackedScene" uid="uid://cunjeo1mg05fo" path="res://scenes/terrian/terrain2.tscn" id="2_jtmba"]
+[ext_resource type="PackedScene" path="res://scenes/terrian/terrain2.tscn" id="2_jtmba"]
 [ext_resource type="PackedScene" uid="uid://bnwp6ma4mcr2k" path="res://scenes/inventory/inventory.tscn" id="3_77omx"]
 [ext_resource type="PackedScene" uid="uid://cu4p5v7dn5qax" path="res://scenes/turn_handler/turn_handler.tscn" id="4_lynks"]
 [ext_resource type="PackedScene" uid="uid://cdljbccjtfmgk" path="res://scenes/game_summary/game_summary.tscn" id="4_yv4dk"]
 [ext_resource type="PackedScene" uid="uid://cf305x3eifves" path="res://scenes/controls/controls.tscn" id="6_kuldb"]
+[ext_resource type="PackedScene" uid="uid://dja20h054iq20" path="res://scenes/Cheese/cheese.tscn" id="7_xbs4q"]
 
 [node name="BattleGround" type="Node2D"]
 script = ExtResource("1_totfw")
@@ -31,3 +32,6 @@ z_index = 1
 
 [node name="Controls" parent="Camera2D" instance=ExtResource("6_kuldb")]
 z_index = 1
+
+[node name="Cheese" parent="." instance=ExtResource("7_xbs4q")]
+position = Vector2(590, 437)

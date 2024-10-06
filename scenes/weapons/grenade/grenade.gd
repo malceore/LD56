@@ -30,8 +30,9 @@ func process(delta):
 
 func _on_timer_timeout():
 	$Explosion.emitting = true
-	await $Explosion.finished
-	#$Explosion.reparent(get_tree().get_root())
+	$AudioStreamPlayer2D.play()
+	$Explosion.reparent(get_tree().get_root())
+	$AudioStreamPlayer2D.reparent(get_tree().get_root())
 	var bodies_in_blast_radius = $BlastRadius.get_overlapping_bodies()
 	for affected_body in bodies_in_blast_radius:
 		#print_debug(affected_body)
@@ -61,7 +62,3 @@ func fire():
 	projectile_instance.apply_central_force(speed * (get_global_mouse_position() - global_position).normalized())
 	projectile_instance.get_node("Timer").start()
 	queue_free()
-
-
-
-

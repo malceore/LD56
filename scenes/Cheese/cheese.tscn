@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://dja20h054iq20"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u2wlw"]
+size = Vector2(40, 40)
+
+[node name="Cheese" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(1, 0.843137, 0.184314, 0.843137)
+
+[node name="Area2D" type="Area2D" parent="ColorRect"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/Area2D"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_u2wlw")

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4pbdlghy5533"]
+[gd_scene load_steps=6 format=3 uid="uid://c4pbdlghy5533"]
 
 [ext_resource type="Script" path="res://scenes/weapons/missle/missle.gd" id="1_2e318"]
 [ext_resource type="Texture2D" uid="uid://bgbtllxkc6bra" path="res://scenes/weapons/weapons.png" id="1_3p2n5"]
 [ext_resource type="PackedScene" uid="uid://46odjt2ofdhg" path="res://scenes/weapons/explosion_particle/explosion.tscn" id="2_sur2l"]
+[ext_resource type="AudioStream" uid="uid://xs5egj6kegh1" path="res://scenes/weapons/sounds/explosion01.wav" id="4_munme"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_48r2m"]
 radius = 2.99999
@@ -13,8 +14,8 @@ collision_layer = 2
 collision_mask = 2
 mass = 0.5
 gravity_scale = 0.5
-max_contacts_reported = 1
 contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_2e318")
 
 [node name="EOLTimer" type="Timer" parent="."]
@@ -40,6 +41,9 @@ scale = Vector2(0.712687, 0.694237)
 polygon = PackedVector2Array(-40.1911, -29.0884, -54.2225, -3.16062, -41.5942, 27.0884, 1.90314, 48.6949, 45.4005, 67.4205, 128.186, -1.72019, 45.4005, -65.0991, 1.90314, -49.2544)
 
 [node name="Explosion" parent="." instance=ExtResource("2_sur2l")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_munme")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="EOLTimer" to="." method="_on_eol_timer_timeout"]

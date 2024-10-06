@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://c31x3d10gvc6s"]
+
+[ext_resource type="Script" path="res://cheese.gd" id="1_2fjn7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u2wlw"]
+size = Vector2(40, 40)
+
+[node name="Cheese" type="Node2D"]
+script = ExtResource("1_2fjn7")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(1, 0.843137, 0.184314, 0.843137)
+
+[node name="Area2D" type="Area2D" parent="ColorRect"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/Area2D"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_u2wlw")
+
+[connection signal="area_entered" from="ColorRect/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="ColorRect/Area2D" to="." method="_on_area_2d_body_entered"]
